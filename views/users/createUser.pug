@@ -1,0 +1,21 @@
+extends ../layout/layoutView
+
+block content 
+ h1 Create User
+ form(action="/users/create",method="POST", class="was-validated" )
+  .mb-3
+  label(for='validationName') Company Name
+  input#validationName.form-control.is-invalid(placeholder='Enter your name', required='',type= 'text',name= 'companyName', value= values ? values.companyName: "")
+  .mb-3
+  label(for='validationContact') Contact
+  input#validationContact.form-control.is-invalid(placeholder='Enter your contact', required='',type= 'text',name= 'contact', value= values ? values.contact: "")
+  .mb-3
+  select.custom-select(required='', name= 'country', value= values ? values.country: "")
+    option(value='') Choose your country...
+    option() VIE
+    option() US
+    option() UK
+  button.btn.btn-primary(type='submit') Submit
+  if errors
+   each error in errors
+    .text.text-danger= error

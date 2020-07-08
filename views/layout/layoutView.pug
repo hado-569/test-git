@@ -1,0 +1,25 @@
+html 
+ head
+  link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css")
+ body
+ nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  nav.navbar.navbar-light.bg-light
+  a.navbar-brand(href='/')
+    img.d-inline-block.align-top(src='/images/cart.png', width='30', height='30', alt='', loading='lazy')
+    |     Home
+  button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item.active
+        a.nav-link(href='/users')
+          | Users List
+          span.sr-only (current)
+      li.nav-item.active
+        a.nav-link(href='/products')
+          | Products
+          span.sr-only (current)    
+  if user                
+   p= user.email
+ .container.pt-5        
+   block content

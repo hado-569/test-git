@@ -1,0 +1,24 @@
+extends ../layout/layoutView
+
+block content
+ .row
+   each valProducts in products
+    .card.mr-md-3(style= "width: 18rem;")
+       .card-body
+         img.card-img-top(src= valProducts.image)
+         h5.card-title= valProducts.productName
+         p.card-text= valProducts.description
+         h6.card-title= valProducts.price + '$'
+         a.btn.btn-primary(href='#') Buy it
+ nav(aria-label='Page navigation example')
+  ul.pagination
+    li.page-item
+      a.page-link(href='#') Previous
+    li.page-item
+      a.page-link(href='#') 1
+    li.page-item
+      a.page-link(href='#') 2
+    li.page-item
+      a.page-link(href='#') 3
+    li.page-item
+      a.page-link(href='#') Next       

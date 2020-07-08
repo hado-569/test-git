@@ -1,0 +1,21 @@
+extends ../layout/layoutView
+
+block content
+  h2 Users List
+  form.form-inline.my-2.my-lg-0(action='/users/search', method='GET')
+      input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search', name='q', value=valSearch)
+      button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+      a.btn.btn-primary.ml-2(href='/users/create', role='button') Create
+  table(class="table table-dark")
+    tr
+      th(scope="col") Company
+      th(scope="col") Contact
+      th(scope="col") Country
+      th(scope="col") Actions
+    each valUser in users
+      tr
+      td= valUser.companyName
+      td= valUser.contact
+      td= valUser.country
+      td
+        a(href='/users/' + valUser.id) View detail   

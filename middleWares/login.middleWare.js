@@ -1,0 +1,20 @@
+var db = require('../db');
+
+module.exports.requireLogin= function(req ,res, next) {
+
+	if (!req.signedCookies.userID) {
+		res.redirect('/login');
+		return;
+	}
+
+	var user = db.get('users').find({id: req.signedCookies.userID }).value();
+
+	if (!user) {
+		res.redirect('/login');
+		return;
+	}
+
+	res.locals.user = user;
+
+	next();
+};
